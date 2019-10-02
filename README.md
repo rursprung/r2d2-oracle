@@ -1,4 +1,6 @@
 # r2d2-oracle
+[![Build Status](https://travis-ci.com/rursprung/r2d2-oracle.svg?branch=master)](https://travis-ci.com/rursprung/r2d2-oracle)
+
 Oracle support for the r2d2 connection pool.
 This fits in between the [r2d2](https://crates.io/crates/r2d2) connection manager and [oracle](https://crates.io/crates/oracle) database driver crates.
 
@@ -30,3 +32,8 @@ fn main() {
 ## Current Status of the Crate & Roadmap to v1.0.0
 This is the initial release of the crate and has not yet been proven in production. Nevertheless: the crate is very small so not many problems are expected.
 The precondition for releasing v1.0.0 is that both `r2d2` and `oracle` have released their v1.0.0.
+
+## Build-time Requirements
+The crate is tested against stable rust and rust 1.38.0 (which was the stable version at the time the crate has been built).
+It is possible that it works with older versions as well but this is not tested.
+Please see the details of the r2d2 and oracle crates about their requirements.
