@@ -19,12 +19,12 @@ pub use r2d2;
 ///      .unwrap();
 ///
 /// for _ in 0..20 {
-///   let pool = pool.clone();
-///   thread::spawn(move || {
-///     let conn = pool.get().unwrap();
-///     // use the connection
-///     // it will be returned to the pool when it falls out of scope.
-///   });
+///     let pool = pool.clone();
+///     thread::spawn(move || {
+///         let conn = pool.get().unwrap();
+///         // use the connection
+///         // it will be returned to the pool when it falls out of scope.
+///     });
 /// }
 /// ```
 #[derive(Debug)]
