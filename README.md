@@ -26,3 +26,7 @@ fn main() {
     }
 }
 ```
+
+## Current Status of the Crate & Roadmap to v1.0.0
+This is the initial release of the crate and has not yet been proven in production. Nevertheless: the crate is very small so not many problems are expected.
+The precondition for releasing v1.0.0 is that both `r2d2` and `oracle` have released their v1.0.0.
