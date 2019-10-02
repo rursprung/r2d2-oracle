@@ -1,3 +1,7 @@
+#![deny(missing_docs)]
+
+//! Oracle support for the r2d2 connection pool.
+
 pub use oracle;
 pub use r2d2;
 
