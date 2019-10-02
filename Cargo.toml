@@ -6,6 +6,7 @@ edition = "2018"
 description = "Oracle support for the r2d2 connection pool"
 repository = "https://github.com/rursprung/r2d2-oracle"
 keywords = ["oracle", "sql", "pool", "database", "r2d2"]
+license = "MIT OR Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
