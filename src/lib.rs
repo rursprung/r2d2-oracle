@@ -43,7 +43,7 @@ impl OracleConnectionManager {
     /// ```
     pub fn new(username: &str, password: &str, connect_string: &str) -> OracleConnectionManager {
         OracleConnectionManager {
-            connector: oracle::Connector::new(username, password, connect_string)
+            connector: oracle::Connector::new(username, password, connect_string),
         }
     }
 
@@ -61,9 +61,7 @@ impl OracleConnectionManager {
     /// let manager = OracleConnectionManager::new_with_connector(connector.clone());
     /// ```
     pub fn new_with_connector(connector: oracle::Connector) -> OracleConnectionManager {
-        OracleConnectionManager {
-            connector
-        }
+        OracleConnectionManager { connector }
     }
 }
 
@@ -83,4 +81,3 @@ impl r2d2::ManageConnection for OracleConnectionManager {
         self.is_valid(conn).is_err()
     }
 }
-
