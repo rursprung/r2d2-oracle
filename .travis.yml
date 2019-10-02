@@ -1,0 +1,5 @@
+language: rust
+rust:
+  - stable
+  - 1.38.0  # lowest rust release against which we guarantee compatibility.
+cache: cargo
