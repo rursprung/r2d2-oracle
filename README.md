@@ -1,5 +1,7 @@
 # r2d2-oracle
 [![Build Status](https://travis-ci.com/rursprung/r2d2-oracle.svg?branch=master)](https://travis-ci.com/rursprung/r2d2-oracle)
+![Crates.io](https://img.shields.io/crates/v/r2d2-oracle)
+![Crates.io](https://img.shields.io/crates/l/r2d2-oracle)
 
 Oracle support for the r2d2 connection pool.
 This fits in between the [r2d2](https://crates.io/crates/r2d2) connection manager and [oracle](https://crates.io/crates/oracle) database driver crates.
