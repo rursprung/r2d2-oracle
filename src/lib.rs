@@ -5,15 +5,6 @@
 pub use oracle;
 pub use r2d2;
 
-/// The configuration used for `oracle::Connection::connect`.
-#[derive(Debug)]
-struct Config {
-    username: String,
-    password: String,
-    connect_string: String,
-    params: Vec<oracle::ConnParam>,
-}
-
 /// An `r2d2::ManageConnection` for `oracle::Connection`s.
 ///
 /// # Example
@@ -21,7 +12,7 @@ struct Config {
 /// use std::thread;
 /// use r2d2_oracle::OracleConnectionManager;
 ///
-/// let manager = OracleConnectionManager::new("user", "password", "localhost", &[]);
+/// let manager = OracleConnectionManager::new("user", "password", "localhost");
 /// let pool = r2d2::Pool::builder()
 ///      .max_size(15)
 ///      .build(manager)
@@ -38,25 +29,40 @@ struct Config {
 /// ```
 #[derive(Debug)]
 pub struct OracleConnectionManager {
-    config: Config,
+    connector: oracle::Connector,
 }
 
 impl OracleConnectionManager {
     /// Initialise the connection manager with the data needed to create new connections.
+    /// Refer to the documentation of `oracle::Connection` for further details on the parameters.
     ///
     /// # Example
     /// ```
     /// # use r2d2_oracle::OracleConnectionManager;
-    /// let manager = OracleConnectionManager::new("user", "password", "localhost", &[]);
+    /// let manager = OracleConnectionManager::new("user", "password", "localhost");
     /// ```
-    pub fn new(username: &str, password: &str, connect_string: &str, params: &[oracle::ConnParam]) -> OracleConnectionManager {
+    pub fn new(username: &str, password: &str, connect_string: &str) -> OracleConnectionManager {
         OracleConnectionManager {
-            config: Config {
-                username: String::from(username),
-                password: String::from(password),
-                connect_string: String::from(connect_string),
-                params: Vec::from(params)
-            }
+            connector: oracle::Connector::new(username, password, connect_string)
+        }
+    }
+
+    /// Initialise the connection manager with the data needed to create new connections using `oracle::Connector`.
+    /// This allows setting additional connection data.
+    ///
+    /// If a connection can be established only with a username, password and connect string, use `new` instead.
+    ///
+    /// # Example
+    /// ```
+    /// # use r2d2_oracle::OracleConnectionManager;
+    /// // connect system/manager as sysdba
+    /// let mut connector = oracle::Connector::new("system", "manager", "");
+    /// let connector = connector.privilege(oracle::Privilege::Sysdba);
+    /// let manager = OracleConnectionManager::new_with_connector(connector.clone());
+    /// ```
+    pub fn new_with_connector(connector: oracle::Connector) -> OracleConnectionManager {
+        OracleConnectionManager {
+            connector
         }
     }
 }
@@ -66,7 +72,7 @@ impl r2d2::ManageConnection for OracleConnectionManager {
     type Error = oracle::Error;
 
     fn connect(&self) -> Result<oracle::Connection, oracle::Error> {
-        oracle::Connection::connect(&self.config.username, &self.config.password, &self.config.connect_string, &self.config.params.as_slice())
+        self.connector.connect()
     }
 
     fn is_valid(&self, conn: &mut oracle::Connection) -> Result<(), oracle::Error> {
