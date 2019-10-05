@@ -3,3 +3,11 @@ rust:
   - stable
   - 1.38.0  # lowest rust release against which we guarantee compatibility.
 cache: cargo
+before_install:
+  - rustup component add clippy
+  - rustup component add rustfmt
+script:
+  - cargo build --verbose
+  - cargo test --verbose
+  - cargo clippy --verbose
+  - cargo fmt && [ `git status -s | wc -l` -eq 0 ] # check that all files are formatted with `cargo fmt`

@@ -57,10 +57,10 @@ impl OracleConnectionManager {
     /// # use r2d2_oracle::OracleConnectionManager;
     /// // connect system/manager as sysdba
     /// let mut connector = oracle::Connector::new("system", "manager", "");
-    /// let connector = connector.privilege(oracle::Privilege::Sysdba);
-    /// let manager = OracleConnectionManager::new_with_connector(connector.clone());
+    /// connector.privilege(oracle::Privilege::Sysdba);
+    /// let manager = OracleConnectionManager::from_connector(connector);
     /// ```
-    pub fn new_with_connector(connector: oracle::Connector) -> OracleConnectionManager {
+    pub fn from_connector(connector: oracle::Connector) -> OracleConnectionManager {
         OracleConnectionManager { connector }
     }
 }
@@ -74,10 +74,13 @@ impl r2d2::ManageConnection for OracleConnectionManager {
     }
 
     fn is_valid(&self, conn: &mut oracle::Connection) -> Result<(), oracle::Error> {
-        conn.query("SELECT 1 FROM dual", &[]).map(|_| ())
+        conn.ping()
     }
 
     fn has_broken(&self, conn: &mut oracle::Connection) -> bool {
-        self.is_valid(conn).is_err()
+        match conn.status() {
+            Ok(oracle::ConnStatus::Normal) => false,
+            _ => true,
+        }
     }
 }

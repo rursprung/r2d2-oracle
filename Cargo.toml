@@ -12,4 +12,4 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 r2d2 = "0.8"
-oracle = "0.3"
+oracle = "0.3.1"
