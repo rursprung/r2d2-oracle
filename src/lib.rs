@@ -74,7 +74,7 @@ impl r2d2::ManageConnection for OracleConnectionManager {
     }
 
     fn is_valid(&self, conn: &mut oracle::Connection) -> Result<(), oracle::Error> {
-        conn.query("SELECT 1 FROM dual", &[]).map(|_| ())
+        conn.ping()
     }
 
     fn has_broken(&self, conn: &mut oracle::Connection) -> bool {
