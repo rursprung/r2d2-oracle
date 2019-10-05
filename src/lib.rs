@@ -57,8 +57,8 @@ impl OracleConnectionManager {
     /// # use r2d2_oracle::OracleConnectionManager;
     /// // connect system/manager as sysdba
     /// let mut connector = oracle::Connector::new("system", "manager", "");
-    /// let connector = connector.privilege(oracle::Privilege::Sysdba);
-    /// let manager = OracleConnectionManager::from_connector(connector.clone());
+    /// connector.privilege(oracle::Privilege::Sysdba);
+    /// let manager = OracleConnectionManager::from_connector(connector);
     /// ```
     pub fn from_connector(connector: oracle::Connector) -> OracleConnectionManager {
         OracleConnectionManager { connector }
