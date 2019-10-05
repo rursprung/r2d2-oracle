@@ -78,6 +78,9 @@ impl r2d2::ManageConnection for OracleConnectionManager {
     }
 
     fn has_broken(&self, conn: &mut oracle::Connection) -> bool {
-        self.is_valid(conn).is_err()
+        match conn.status() {
+            Ok(oracle::ConnStatus::Normal) => false,
+            _ => true,
+        }
     }
 }
