@@ -1,6 +1,12 @@
 #![deny(missing_docs)]
 
 //! Oracle support for the r2d2 connection pool.
+//!
+//! If you want to use chrono data types, enable the ```chrono``` feature:
+//!```toml
+//![dependencies]
+//!r2d2-oracle = { version = "0.2.0", features = ["chrono"] }
+//!```
 
 pub use oracle;
 pub use r2d2;
