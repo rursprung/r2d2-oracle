@@ -13,4 +13,4 @@ script:
   - cargo build --verbose $FEATURES
   - cargo test --verbose $FEATURES
   - cargo clippy --verbose $FEATURES
-  - cargo fmt && [ `git status -s | wc -l` -eq 0 ] # check that all files are formatted with `cargo fmt`
+  - cargo fmt --all -- --check
