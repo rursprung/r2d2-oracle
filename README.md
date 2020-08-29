@@ -34,9 +34,9 @@ fn main() {
 }
 ```
 
-If you want to use chrono data types, enable the ```chrono``` feature:
+If you want to use chrono data types, enable the `chrono` feature:
 
-```
+```toml
 [dependencies]
 r2d2-oracle = { version = "0.2.0", features = ["chrono"] }
 ```
