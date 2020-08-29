@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.com/rursprung/r2d2-oracle.svg?branch=master)](https://travis-ci.com/rursprung/r2d2-oracle)
 [![Crates.io](https://img.shields.io/crates/v/r2d2-oracle)](https://crates.io/crates/r2d2-oracle)
 ![Crates.io](https://img.shields.io/crates/l/r2d2-oracle)
+[![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
 
 The documentation can be found on [docs.rs](https://docs.rs/r2d2-oracle/).
 

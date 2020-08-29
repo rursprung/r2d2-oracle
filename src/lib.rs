@@ -1,4 +1,5 @@
 #![deny(missing_docs)]
+#![forbid(unsafe_code)]
 
 //! Oracle support for the r2d2 connection pool.
 //!
