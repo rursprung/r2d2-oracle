@@ -1,7 +1,7 @@
 language: rust
 rust:
   - stable
-  - 1.38.0  # lowest rust release against which we guarantee compatibility.
+  - 1.42.0  # lowest rust release against which we guarantee compatibility.
 cache: cargo
 env:
   - FEATURES='--features chrono'

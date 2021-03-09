@@ -49,6 +49,6 @@ This is the initial release of the crate and has not yet been proven in producti
 The precondition for releasing v1.0.0 is that both `r2d2` and `oracle` have released their v1.0.0.
 
 ## Build-time Requirements
-The crate is tested against stable rust and rust 1.38.0 (which was the stable version at the time the crate has been built).
+The crate is tested against stable rust and rust 1.42.0 (which was the stable version at the time the crate has been built).
 It is possible that it works with older versions as well but this is not tested.
 Please see the details of the r2d2 and oracle crates about their requirements.
