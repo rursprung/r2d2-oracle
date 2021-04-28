@@ -1,5 +1,8 @@
 # Changelog
 
+# 0.5.0
+* Update to `oracle 0.5.1`
+
 # 0.4.0
 * The minimum required `rustc` version is now 1.42.0
 
