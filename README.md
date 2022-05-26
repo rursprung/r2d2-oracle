@@ -54,6 +54,6 @@ You may also want to consider the following alternatives to this crate, dependin
 * There is an `async` ([`tokio`](https://crates.io/crates/tokio)-based) version of `r2d2`, [`bb8`](https://crates.io/crates/bb8) and a corresponding [`bb8-oracle`](https://crates.io/crates/bb8-oracle) fork of `r2d2-oracle` exists
 
 ## Build-time Requirements
-The crate is tested against stable rust and rust 1.42.0 (which was the stable version at the time the crate has been built).
+The crate is tested against stable rust and rust 1.54.0 (which was the stable version at the time the crate has been built).
 It is possible that it works with older versions as well but this is not tested.
 Please see the details of the r2d2 and oracle crates about their requirements.
