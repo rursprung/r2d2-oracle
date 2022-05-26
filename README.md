@@ -48,6 +48,11 @@ For the changelog please see the dedicated [CHANGELOG.md](CHANGELOG.md).
 This is the initial release of the crate and has not yet been proven in production. Nevertheless: the crate is very small so not many problems are expected.
 The precondition for releasing v1.0.0 is that both `r2d2` and `oracle` have released their v1.0.0.
 
+## Alternatives to `r2d2-oracle`
+You may also want to consider the following alternatives to this crate, depending on your use-cases:
+* Starting with version 0.5.5 the [`oracle`](https://crates.io/crates/oracle) provides buit-in connection pooling support
+* There is an `async` ([`tokio`](https://crates.io/crates/tokio)-based) version of `r2d2`, [`bb8`](https://crates.io/crates/bb8) and a corresponding [`bb8-oracle`](https://crates.io/crates/bb8-oracle) fork of `r2d2-oracle` exists
+
 ## Build-time Requirements
 The crate is tested against stable rust and rust 1.42.0 (which was the stable version at the time the crate has been built).
 It is possible that it works with older versions as well but this is not tested.
