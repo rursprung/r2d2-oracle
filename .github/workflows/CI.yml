@@ -35,4 +35,4 @@ jobs:
       - name: clippy
         run: cargo clippy ${{ matrix.features }}
       - name: audit
-        run: cargo audit
+        run: cargo audit --ignore RUSTSEC-2020-0071 # time 0.1, pulled in through chrono which however doesn't use the affected API. see https://github.com/chronotope/chrono/issues/602
