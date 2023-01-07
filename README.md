@@ -53,7 +53,6 @@ You may also want to consider the following alternatives to this crate, dependin
 * Starting with version 0.5.5 the [`oracle`](https://crates.io/crates/oracle) provides buit-in connection pooling support
 * There is an `async` ([`tokio`](https://crates.io/crates/tokio)-based) version of `r2d2`, [`bb8`](https://crates.io/crates/bb8) and a corresponding [`bb8-oracle`](https://crates.io/crates/bb8-oracle) fork of `r2d2-oracle` exists
 
-## Build-time Requirements
-The crate is tested against stable rust and rust 1.54.0 (which was the stable version at the time the crate has been built).
-It is possible that it works with older versions as well but this is not tested.
-Please see the details of the r2d2 and oracle crates about their requirements.
+## Minimum Supported Rust Version (MSRV)
+This crate is guaranteed to compile on stable Rust 1.54 and up. It *might*
+compile with older versions but that may change in any new patch release.
