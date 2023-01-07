@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 ### Changed
-* The minimum required `rustc` version is now 1.54.0 due to changes in recent releases of `oracle` (older rustc versions might still work with older versions of `oracle`)
+* The Minimum Supported Rust Version (MSRV) is now 1.56.0 due the switch to the 2021 rust edition
+  and due to changes in recent releases of `oracle` (which requires at least 1.54.0).
 
 ## [0.5.0] - 2021-04-28
 ### Changed
