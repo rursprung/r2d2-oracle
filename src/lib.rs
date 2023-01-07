@@ -1,6 +1,3 @@
-#![deny(missing_docs)]
-#![forbid(unsafe_code)]
-
 //! Oracle support for the r2d2 connection pool.
 //!
 //! If you want to use chrono data types, enable the ```chrono``` feature:
@@ -8,6 +5,13 @@
 //![dependencies]
 //!r2d2-oracle = { version = "0.2.0", features = ["chrono"] }
 //!```
+
+#![forbid(unsafe_code)]
+// use deny instead of forbid due to bogus warnings, see also https://github.com/rust-lang/rust/issues/81670
+#![deny(warnings)]
+#![deny(missing_docs)]
+#![forbid(missing_debug_implementations)]
+#![forbid(unused)]
 
 pub use oracle;
 pub use r2d2;
