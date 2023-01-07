@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
+
+## [0.6.0] - 2023-01-07
 ### Changed
 * The Minimum Supported Rust Version (MSRV) is now 1.56.0 due the switch to the 2021 rust edition
   and due to changes in recent releases of `oracle` (which requires at least 1.54.0).
@@ -23,7 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Added support for the `chrono` feature of the `oracle` create by exposing it as the `chrono` feature here as well.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/rursprung/r2d2-oracle/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/rursprung/r2d2-oracle/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/rursprung/r2d2-oracle/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/rursprung/r2d2-oracle/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/rursprung/r2d2-oracle/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/rursprung/r2d2-oracle/compare/v0.2.0...v0.3.0
