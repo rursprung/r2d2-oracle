@@ -18,7 +18,7 @@ jobs:
         features: ['', '--all-features']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: install rust toolchain
         uses: dtolnay/rust-toolchain@master
         with:
