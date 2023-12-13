@@ -1,5 +1,8 @@
 name: CI
 
+permissions:
+  security-events: write # needed to upload SARIF reports on branch builds
+
 on:
   push:
     branches: [ "master" ]
@@ -35,7 +38,21 @@ jobs:
         run: cargo test ${{ matrix.features }}
       - name: check formatting
         run: cargo fmt --all -- --check
-      - name: clippy
-        run: cargo clippy ${{ matrix.features }}
       - name: audit
         run: cargo audit --ignore RUSTSEC-2020-0071 # time 0.1, pulled in through chrono which however doesn't use the affected API. see https://github.com/chronotope/chrono/issues/602
+
+  clippy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: install rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Install required cargo components
+        run: cargo install clippy-sarif sarif-fmt
+      - name: clippy
+        run: cargo clippy --features --all-features --message-format=json | clippy-sarif | tee rust-clippy-results.sarif | sarif-fmt
+      - name: Upload analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: rust-clippy-results.sarif
+          wait-for-processing: true
