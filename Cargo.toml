@@ -16,4 +16,4 @@ chrono=["oracle/chrono"]
 
 [dependencies]
 r2d2 = "0.8"
-oracle = "0.5.1"
+oracle = "0.6.0"
