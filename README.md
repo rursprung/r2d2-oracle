@@ -54,5 +54,5 @@ You may also want to consider the following alternatives to this crate, dependin
 * There is an `async` ([`tokio`](https://crates.io/crates/tokio)-based) version of `r2d2`, [`bb8`](https://crates.io/crates/bb8) and a corresponding [`bb8-oracle`](https://crates.io/crates/bb8-oracle) fork of `r2d2-oracle` exists
 
 ## Minimum Supported Rust Version (MSRV)
-This crate is guaranteed to compile on stable Rust 1.54 and up. It *might*
+This crate is guaranteed to compile on stable Rust 1.60 and up. It *might*
 compile with older versions but that may change in any new patch release.

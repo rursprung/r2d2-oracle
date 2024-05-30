@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
+### Changed
+* Update to `oracle 0.6.0`
+* The Minimum Supported Rust Version (MSRV) is now 1.60.0 due to changes in recent releases of
+  `oracle`.
 
 ## [0.6.0] - 2023-01-07
 ### Changed
