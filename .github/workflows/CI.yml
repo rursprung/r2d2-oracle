@@ -39,7 +39,7 @@ jobs:
       - name: check formatting
         run: cargo fmt --all -- --check
       - name: audit
-        run: cargo audit --ignore RUSTSEC-2020-0071 # time 0.1, pulled in through chrono which however doesn't use the affected API. see https://github.com/chronotope/chrono/issues/602
+        run: cargo audit
 
   clippy:
     runs-on: ubuntu-latest
