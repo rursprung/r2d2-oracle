@@ -36,12 +36,8 @@ jobs:
         run: cargo check ${{ matrix.features }}
       - name: test
         run: cargo test ${{ matrix.features }}
-      - name: check formatting
-        run: cargo fmt --all -- --check
-      - name: audit
-        run: cargo audit --ignore RUSTSEC-2020-0071 # time 0.1, pulled in through chrono which however doesn't use the affected API. see https://github.com/chronotope/chrono/issues/602
 
-  clippy:
+  static-code-checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -56,3 +52,7 @@ jobs:
         with:
           sarif_file: rust-clippy-results.sarif
           wait-for-processing: true
+      - name: check formatting
+        run: cargo fmt --all -- --check
+      - name: audit
+        run: cargo audit
