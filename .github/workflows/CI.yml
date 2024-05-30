@@ -28,7 +28,7 @@ jobs:
           toolchain: ${{ matrix.rust }}
           components: rustfmt clippy
       - name: use MSRV-compatible dependencies for MSRV check
-        if: ${{ matrix.os != 'stable' }}
+        if: ${{ matrix.rust != 'stable' }}
         run: cp Cargo.lock.rust-msrv Cargo.lock
       - name: build
         run: cargo build ${{ matrix.features }}
