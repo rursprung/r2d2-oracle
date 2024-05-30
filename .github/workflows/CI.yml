@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        rust: [1.56.0, stable]
+        rust: [1.60.0, stable]
         features: ['', '--all-features']
     runs-on: ${{ matrix.os }}
     steps:
@@ -28,7 +28,7 @@ jobs:
           toolchain: ${{ matrix.rust }}
           components: rustfmt clippy
       - name: use MSRV-compatible dependencies for MSRV check
-        if: ${{ matrix.os != 'stable' }}
+        if: ${{ matrix.rust != 'stable' }}
         run: cp Cargo.lock.rust-msrv Cargo.lock
       - name: build
         run: cargo build ${{ matrix.features }}
